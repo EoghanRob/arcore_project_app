@@ -39,9 +39,9 @@ class _ObjectGesturesState extends State<ObjectGestures>
   ARNode? objectNode;
   ARAnchor? objectAnchor;
   double scale = 1.0;
-  double heightOffset = 0.0; // Default height
+  double heightOffset = 0.0; // Was used to control HUD height, now controls HUD distance
   double rotationAngle = 0.0; // Default rotation around X-axis
-  double heightOfUI = 0.3;
+  double heightOfUI = 0.3; //Actual height of HUD
 
   double complexAway = 20.0;
   double simpleAway = 0.0;
@@ -154,7 +154,6 @@ class _ObjectGesturesState extends State<ObjectGestures>
 
       body: Stack(
         children: [
-          // AR View fills the screen
           Positioned.fill(
             child: ARView(
               onARViewCreated: _onARViewCreated,
@@ -208,7 +207,7 @@ class _ObjectGesturesState extends State<ObjectGestures>
                       child: RotatedBox(
                         quarterTurns: _imageTurns, // Use cached orientation for rotation
                         child: Image.asset(
-                          'assets/UI/switch-HUD.jpg', // Path to your image
+                          'assets/UI/switch-HUD.jpg',
                           height: 40, // Adjust height of the image
                           width: 40,  // Ensure consistent scaling
                         ),
@@ -229,7 +228,7 @@ class _ObjectGesturesState extends State<ObjectGestures>
                         child: RotatedBox(
                           quarterTurns: _imageTurns,
                           child: Image.asset(
-                            'assets/UI/size.jpg', // Replace with your image path
+                            'assets/UI/size.jpg',
                             height: 24, // Adjust the height of the image
                           ),
                         ),
@@ -268,7 +267,7 @@ class _ObjectGesturesState extends State<ObjectGestures>
                         child: RotatedBox(
                           quarterTurns: _imageTurns,
                           child: Image.asset(
-                            'assets/UI/height.jpg', // Replace with your image path
+                            'assets/UI/height.jpg',
                             height: 24, // Adjust the height of the image
                           ),
                         ),
